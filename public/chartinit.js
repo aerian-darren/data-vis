@@ -823,6 +823,114 @@ function deck1() {
     }
 }
 
+function deck2() {
+    const { DeckGL, HexagonLayer } = deck;
+
+    const deckgl = new DeckGL({
+        id: "globe",
+        mapStyle:
+            "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+        initialViewState: {
+            longitude: -1.4157,
+            latitude: 52.2324,
+            zoom: 6,
+            minZoom: 5,
+            maxZoom: 15,
+            pitch: 40.5,
+        },
+        controller: true,
+        container: "main11",
+    });
+
+    const data = d3.csv(
+        "https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/3d-heatmap/heatmap-data.csv"
+    );
+
+    const OPTIONS = ["radius", "coverage", "upperPercentile"];
+
+    const COLOR_RANGE = [
+        [1, 152, 189],
+        [73, 227, 206],
+        [216, 254, 181],
+        [254, 237, 177],
+        [254, 173, 84],
+        [209, 55, 78],
+    ];
+
+    OPTIONS.forEach((key) => {
+        document.getElementById(key).oninput = renderLayer;
+    });
+
+    renderLayer();
+
+    function renderLayer() {
+        const options = {};
+        OPTIONS.forEach((key) => {
+            const value = +document.getElementById(key).value;
+            document.getElementById(key + "-value").innerHTML = value;
+            options[key] = value;
+        });
+
+        const hexagonLayer = new HexagonLayer({
+            id: "heatmap",
+            colorRange: COLOR_RANGE,
+            data,
+            elevationRange: [0, 1000],
+            elevationScale: 250,
+            extruded: true,
+            getPosition: (d) => [Number(d.lng), Number(d.lat)],
+            opacity: 1,
+            ...options,
+        });
+
+        deckgl.setProps({
+            layers: [hexagonLayer],
+        });
+    }
+}
+
+function globe1() {
+    const catColor = d3.scaleOrdinal(
+        d3.schemeCategory10.map((col) => polished.transparentize(0.2, col))
+    );
+
+    const getAlt = (d) => d.elevation * 5e-5;
+
+    const getTooltip = (d) => `
+      <div style="text-align: center">
+        <div><b>${d.name}</b>, ${d.country}</div>
+        <div>(${d.type})</div>
+        <div>Elevation: <em>${d.elevation}</em>m</div>
+      </div>
+    `;
+
+    const myGlobe = Globe()
+        .globeImageUrl("//unpkg.com/three-globe/example/img/earth-night.jpg")
+        .backgroundImageUrl("//unpkg.com/three-globe/example/img/night-sky.png")
+        .pointLat("lat")
+        .pointLng("lon")
+        .pointAltitude(getAlt)
+        .pointRadius(0.12)
+        .pointColor((d) => catColor(d.type))
+        .pointLabel(getTooltip)
+        .labelLat("lat")
+        .labelLng("lon")
+        .labelAltitude((d) => getAlt(d) + 1e-6)
+        .labelDotRadius(0.12)
+        .labelDotOrientation(() => "bottom")
+        .labelColor((d) => catColor(d.type))
+        .labelText("name")
+        .labelSize(0.15)
+        .labelResolution(1)
+        .labelLabel(getTooltip)(document.getElementById("globeViz"));
+
+    fetch("../data/world_volcanoes.json")
+        .then((res) => res.json())
+        .then((volcanoes) => {
+            myGlobe.pointsTransitionDuration(15000);
+            myGlobe.pointsData(volcanoes).labelsData(volcanoes);
+        });
+}
 function numbers1() {
     const counters = document.querySelectorAll(".counter");
 
