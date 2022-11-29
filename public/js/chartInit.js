@@ -34,7 +34,7 @@ function chart1() {
 }
 
 function chart2(data) {
-    var chartDom = document.getElementById("main2");
+    var chartDom = document.getElementById("chart2");
     var myChart = echarts.init(chartDom, "dark");
     var option;
 
@@ -99,7 +99,7 @@ function chart2(data) {
 }
 
 function chart3(data) {
-    var chartDom = document.getElementById("main3");
+    var chartDom = document.getElementById("chart3");
     var myChart = echarts.init(chartDom, "dark");
     var option;
 
@@ -194,7 +194,7 @@ function chart3(data) {
 }
 
 function chart4() {
-    var chartDom = document.getElementById("main4");
+    var chartDom = document.getElementById("chart4");
     var myChart = echarts.init(chartDom, "dark");
 
     option = {
@@ -283,7 +283,7 @@ function chart4() {
 }
 
 function chart5() {
-    var chartDom = document.getElementById("main5");
+    var chartDom = document.getElementById("chart5");
     var myChart = echarts.init(chartDom, "dark");
     var option;
 
@@ -341,7 +341,7 @@ function chart5() {
 }
 
 function chart6() {
-    var chartDom = document.getElementById("main6");
+    var chartDom = document.getElementById("chart6");
     var myChart = echarts.init(chartDom, "dark");
     var option;
 
@@ -453,7 +453,7 @@ function chart6() {
 }
 
 function chart7() {
-    var chartDom = document.getElementById("main7");
+    var chartDom = document.getElementById("chart7");
     var myChart = echarts.init(chartDom, "dark");
     var option;
 
@@ -577,360 +577,6 @@ function chart7() {
     option && myChart.setOption(option);
 }
 
-function chart8(data) {
-    var chartDom = document.getElementById("main8");
-    var myChart = echarts.init(chartDom, "dark");
-    var option;
-
-    data = data
-        .filter(function (dataItem) {
-            return dataItem[2] > 0;
-        })
-        .map(function (dataItem) {
-            return [dataItem[0], dataItem[1], Math.sqrt(dataItem[2])];
-        });
-
-    option = {
-        backgroundColor: "#000",
-        globe: {
-            baseTexture: "world.jpg",
-            // heightTexture: "world.topo.bathy.200401.jpg",
-            displacementScale: 0.04,
-            shading: "realistic",
-            environment: "starfield.jpg",
-            realisticMaterial: {
-                roughness: 0.9,
-            },
-            postEffect: {
-                enable: true,
-            },
-            light: {
-                main: {
-                    intensity: 0,
-                    shadow: false,
-                },
-                ambientCubemap: {
-                    texture: "pisa.hdr",
-                    diffuseIntensity: 0.2,
-                },
-            },
-        },
-    };
-
-    option && myChart.setOption(option);
-}
-
-function chart9(data) {
-    var chartDom = document.getElementById("main9");
-    var myChart = echarts.init(chartDom);
-    var option;
-
-    data = data
-        .filter(function (dataItem) {
-            return dataItem[2] > 0;
-        })
-        .map(function (dataItem) {
-            return [dataItem[0], dataItem[1], Math.sqrt(dataItem[2])];
-        });
-
-    myChart.setOption({
-        backgroundColor: "#cdcfd5",
-
-        geo3D: {
-            map: "world",
-            shading: "lambert",
-            environment: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                {
-                    offset: 0,
-                    color: "#00aaff",
-                },
-                {
-                    offset: 0.6,
-                    color: "#998866",
-                },
-                {
-                    offset: 1,
-                    color: "#998866",
-                },
-            ]),
-            light: {
-                main: {
-                    intensity: 5,
-                    shadow: true,
-                    shadowQuality: "high",
-                    alpha: 0,
-                },
-                ambient: {
-                    intensity: 0,
-                },
-                ambientCubemap: {
-                    texture: "canyon.hdr",
-                    exposure: 1,
-                    diffuseIntensity: 0.5,
-                },
-            },
-            viewControl: {
-                distance: 50,
-                panMouseButton: "left",
-                rotateMouseButton: "right",
-            },
-            groundPlane: {
-                show: false,
-                color: "#999",
-            },
-            postEffect: {
-                enable: true,
-                screenSpaceAmbientOcclusion: {
-                    enable: true,
-                    radius: 3,
-                    intensity: 2,
-                },
-            },
-            groundPlane: {
-                show: true,
-            },
-            light: {
-                main: {
-                    intensity: 1,
-                    shadow: true,
-                    shadowQuality: "high",
-                    alpha: 30,
-                },
-                ambient: {
-                    intensity: 0,
-                },
-                ambientCubemap: {
-                    texture: "asset/canyon.hdr",
-                    exposure: 2,
-                    diffuseIntensity: 0.3,
-                },
-            },
-
-            viewControl: {
-                distance: 50,
-            },
-            temporalSuperSampling: {
-                enable: false,
-            },
-            itemStyle: {},
-            regionHeight: 2,
-        },
-        visualMap: {
-            max: 20,
-            calculable: true,
-            realtime: false,
-            inRange: {
-                color: [
-                    "#313695",
-                    "#4575b4",
-                    "#74add1",
-                    "#abd9e9",
-                    "#e0f3f8",
-                    "#ffffbf",
-                    "#fee090",
-                    "#fdae61",
-                    "#f46d43",
-                    "#d73027",
-                    "#a50026",
-                ],
-            },
-            outOfRange: {
-                colorAlpha: 0,
-            },
-        },
-        series: [
-            {
-                type: "bar3D",
-                coordinateSystem: "geo3D",
-                shading: "lambert",
-                data: data,
-                barSize: 0.1,
-                minHeight: 0.2,
-                silent: true,
-                itemStyle: {
-                    color: "orange",
-                    // opacity: 0.8
-                },
-            },
-        ],
-        tooltip: {},
-    });
-}
-
-function deck1() {
-    const { DeckGL, HexagonLayer } = deck;
-
-    const deckgl = new DeckGL({
-        id: "map",
-        mapStyle:
-            "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
-        initialViewState: {
-            longitude: -1.4157,
-            latitude: 52.2324,
-            zoom: 6,
-            minZoom: 5,
-            maxZoom: 15,
-            pitch: 40.5,
-        },
-        controller: true,
-        container: "main10",
-    });
-
-    const data = d3.csv(
-        "https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/3d-heatmap/heatmap-data.csv"
-    );
-
-    const OPTIONS = ["radius", "coverage", "upperPercentile"];
-
-    const COLOR_RANGE = [
-        [1, 152, 189],
-        [73, 227, 206],
-        [216, 254, 181],
-        [254, 237, 177],
-        [254, 173, 84],
-        [209, 55, 78],
-    ];
-
-    OPTIONS.forEach((key) => {
-        document.getElementById(key).oninput = renderLayer;
-    });
-
-    renderLayer();
-
-    function renderLayer() {
-        const options = {};
-        OPTIONS.forEach((key) => {
-            const value = +document.getElementById(key).value;
-            document.getElementById(key + "-value").innerHTML = value;
-            options[key] = value;
-        });
-
-        const hexagonLayer = new HexagonLayer({
-            id: "heatmap",
-            colorRange: COLOR_RANGE,
-            data,
-            elevationRange: [0, 1000],
-            elevationScale: 250,
-            extruded: true,
-            getPosition: (d) => [Number(d.lng), Number(d.lat)],
-            opacity: 1,
-            ...options,
-        });
-
-        deckgl.setProps({
-            layers: [hexagonLayer],
-        });
-    }
-}
-
-function deck2() {
-    const { DeckGL, HexagonLayer } = deck;
-
-    const deckgl = new DeckGL({
-        id: "globe",
-        mapStyle:
-            "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
-        initialViewState: {
-            longitude: -1.4157,
-            latitude: 52.2324,
-            zoom: 6,
-            minZoom: 5,
-            maxZoom: 15,
-            pitch: 40.5,
-        },
-        controller: true,
-        container: "main11",
-    });
-
-    const data = d3.csv(
-        "https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/3d-heatmap/heatmap-data.csv"
-    );
-
-    const OPTIONS = ["radius", "coverage", "upperPercentile"];
-
-    const COLOR_RANGE = [
-        [1, 152, 189],
-        [73, 227, 206],
-        [216, 254, 181],
-        [254, 237, 177],
-        [254, 173, 84],
-        [209, 55, 78],
-    ];
-
-    OPTIONS.forEach((key) => {
-        document.getElementById(key).oninput = renderLayer;
-    });
-
-    renderLayer();
-
-    function renderLayer() {
-        const options = {};
-        OPTIONS.forEach((key) => {
-            const value = +document.getElementById(key).value;
-            document.getElementById(key + "-value").innerHTML = value;
-            options[key] = value;
-        });
-
-        const hexagonLayer = new HexagonLayer({
-            id: "heatmap",
-            colorRange: COLOR_RANGE,
-            data,
-            elevationRange: [0, 1000],
-            elevationScale: 250,
-            extruded: true,
-            getPosition: (d) => [Number(d.lng), Number(d.lat)],
-            opacity: 1,
-            ...options,
-        });
-
-        deckgl.setProps({
-            layers: [hexagonLayer],
-        });
-    }
-}
-
-function globe1() {
-    const catColor = d3.scaleOrdinal(
-        d3.schemeCategory10.map((col) => polished.transparentize(0.2, col))
-    );
-
-    const getAlt = (d) => d.elevation * 5e-5;
-
-    const getTooltip = (d) => `
-      <div style="text-align: center">
-        <div><b>${d.name}</b>, ${d.country}</div>
-        <div>(${d.type})</div>
-        <div>Elevation: <em>${d.elevation}</em>m</div>
-      </div>
-    `;
-
-    const myGlobe = Globe()
-        .globeImageUrl("//unpkg.com/three-globe/example/img/earth-night.jpg")
-        .backgroundImageUrl("//unpkg.com/three-globe/example/img/night-sky.png")
-        .pointLat("lat")
-        .pointLng("lon")
-        .pointAltitude(getAlt)
-        .pointRadius(0.12)
-        .pointColor((d) => catColor(d.type))
-        .pointLabel(getTooltip)
-        .labelLat("lat")
-        .labelLng("lon")
-        .labelAltitude((d) => getAlt(d) + 1e-6)
-        .labelDotRadius(0.12)
-        .labelDotOrientation(() => "bottom")
-        .labelColor((d) => catColor(d.type))
-        .labelText("name")
-        .labelSize(0.15)
-        .labelResolution(1)
-        .labelLabel(getTooltip)(document.getElementById("globeViz"));
-
-    fetch("../data/world_volcanoes.json")
-        .then((res) => res.json())
-        .then((volcanoes) => {
-            myGlobe.pointsTransitionDuration(15000);
-            myGlobe.pointsData(volcanoes).labelsData(volcanoes);
-        });
-}
 function numbers1() {
     const counters = document.querySelectorAll(".counter");
 

@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
+body {
+    background-color: #2828286f;
+    color: #fff;
+    font-family: "Roboto Mono", sans-serif;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.chart-item {
+    width: 100%;
+    height: 50vh;
+    margin-bottom: 5vh;
+}
+
+
+
+.counter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 30px 50px;
+}
+
+.counter {
+    font-size: 60px;
+    margin-top: 10px;
+}
+
+@media (max-width: 580px) {
+    body {
+        flex-direction: column;
+    }
+}
+
+#control-panel {
+    font-family: Helvetica, Arial, sans-serif;
+    position: absolute;
+    background: rgb(47, 46, 46);
+    margin: 12px;
+    padding: 20px;
+    z-index: 1;
+}
+
+label {
+    display: inline-block;
+    width: 140px;
+}
+
+.mapboxgl-map>canvas {
+    height: 400px;
+}
+
+
+
+.ml1 {
+    text-align: center;
+    font-weight: 900;
+    font-size: 3.5em;
+}
+
+.ml1 .letter {
+    display: inline-block;
+    line-height: 1em;
+}
+
+.ml1 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.1em;
+    padding-right: 0.05em;
+    padding-bottom: 0.15em;
+}
+
+.ml1 .line {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    transform-origin: 0 0;
+}
+
+.ml1 .line1 {
+    top: 0;
+}
+
+.ml1 .line2 {
+    bottom: 0;
+}
