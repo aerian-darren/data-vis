@@ -1,154 +1,164 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Aer Studios</title>
+  <head>
+    <meta charset="utf-8" />
+    <title>Aer Studios</title>
 
-        <!-- Apache echarts -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.0/echarts.min.js"
-            integrity="sha512-LYmkblt36DJsQPmCK+cK5A6Gp6uT7fLXQXAX0bMa763tf+DgiiH3+AwhcuGDAxM1SvlimjwKbkMPL3ZM1qLbag=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        ></script>
-        <!-- Packages for globe.gl -->
-        <script src="//unpkg.com/d3"></script>
-        <script src="//unpkg.com/polished@3.5.2/dist/polished.js"></script>
-        <script src="//unpkg.com/globe.gl"></script>
+    <!-- Apache echarts -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.0/echarts.min.js"
+      integrity="sha512-LYmkblt36DJsQPmCK+cK5A6Gp6uT7fLXQXAX0bMa763tf+DgiiH3+AwhcuGDAxM1SvlimjwKbkMPL3ZM1qLbag=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- Packages for globe.gl -->
+    <script src="//unpkg.com/d3"></script>
+    <script src="//unpkg.com/polished@3.5.2/dist/polished.js"></script>
+    <script src="//unpkg.com/globe.gl"></script>
 
-        <script src="https://unpkg.com/d3@7.6.1/dist/d3.min.js"></script>
-        <script src="https://unpkg.com/d3-dsv@3.0.1/dist/d3-dsv.min.js"></script>
+    <script src="https://unpkg.com/d3@7.6.1/dist/d3.min.js"></script>
+    <script src="https://unpkg.com/d3-dsv@3.0.1/dist/d3-dsv.min.js"></script>
 
-        <!-- Mapping data vis -->
-        <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
-        <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
-        <!-- optional if mapbox base map is needed -->
-        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"></script>
-        <link
-            href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css"
-            rel="stylesheet"
-        />
+    <!-- Mapping data vis -->
+    <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+    <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+    <!-- optional if mapbox base map is needed -->
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
 
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"
-            integrity="sha512-MefNfAGJ/pEy89xLOFs3V6pYPs6AmUhXJrRlydI/9wZuGrqxmrdQ80zKHUcyadAcpH67teDZcBeS6oMJLPtTqw=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"
+      integrity="sha512-MefNfAGJ/pEy89xLOFs3V6pYPs6AmUhXJrRlydI/9wZuGrqxmrdQ80zKHUcyadAcpH67teDZcBeS6oMJLPtTqw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-            rel="stylesheet"
-        />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      rel="stylesheet"
+    />
 
-        <link rel="stylesheet" href="/style/main.css" />
+    <link rel="stylesheet" href="/style/main.css" />
 
-        <!-- Animate things (letters and shapes) -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <!-- Animate things (letters and shapes) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
-        <!-- Theme for echarts -->
-        <script src="/theme/vintage.js"></script>
+    <!-- Theme for echarts -->
+    <script src="/theme/vintage.js"></script>
 
-        <!-- some data in a js var for chart 2 and 3 -->
-        <script src="/data/chart2.js"></script>
-        <script src="/data/chart3.js"></script>
+    <!-- some data in a js var for chart 2 and 3 -->
+    <script src="/data/chart2.js"></script>
+    <script src="/data/chart3.js"></script>
 
-        <!-- this is where the charts are created, 1 for each lib -->
-        <script src="/js/chartInit.js"></script>
-        <script src="/js/deckInit.js"></script>
-        <script src="/js/globeInit.js"></script>
-    </head>
+    <!-- this is where the charts are created, 1 for each lib -->
+    <script src="/js/chartInit.js"></script>
+    <script src="/js/deckInit.js"></script>
+    <script src="/js/globeInit.js"></script>
+  </head>
 
-    <body>
-        <div class="container">
-            <h1 class="ml1">
-                <span class="text-wrapper">
-                    <span class="line line1"></span>
-                    <span class="letters">AER STUDIOS</span>
-                    <span class="line line2"></span>
-                </span>
-            </h1>
+  <body>
+    <div class="container">
+      <h1 class="ml1">
+        <span class="text-wrapper">
+          <span class="line line1"></span>
+          <span class="letters">AER STUDIOS</span>
+          <span class="line line2"></span>
+        </span>
+      </h1>
 
-            <div class="counter-container">
-                <i class="fab fa-square fa-3x"></i>
-                <div class="counter" data-target="12000"></div>
-                <span>New Users</span>
-            </div>
+      <div class="counter-container">
+        <i class="fab fa-square fa-3x"></i>
+        <div class="counter" data-target="12000"></div>
+        <span>New Users</span>
+      </div>
 
-            <!-- Prepare a DOM with a defined width and height for ECharts -->
-            <div id="main" class="chart-item"></div>
-            <br />
-            <div id="chart2" class="chart-item"></div>
-            <br />
-            <div id="chart3" class="chart-item"></div>
-            <br />
-            <div id="chart4" class="chart-item"></div>
-            <br />
-            <div id="chart5" class="chart-item"></div>
-            <br />
-            <div id="chart6" class="chart-item"></div>
-            <br />
-            <div id="chart7" class="chart-item"></div>
-            <br />
-            <div id="globe1" class="chart-item"></div>
-            <br />
-            <div id="deck1" class="chart-item">
-                <div id="control-panel">
-                    <div>
-                        <label>Radius</label>
-                        <input
-                            id="radius"
-                            type="range"
-                            min="1000"
-                            max="20000"
-                            step="1000"
-                            value="1000"
-                        />
-                        <span id="radius-value"></span>
-                    </div>
-                    <div>
-                        <label>Coverage</label>
-                        <input
-                            id="coverage"
-                            type="range"
-                            min="0"
-                            max="1"
-                            step="0.1"
-                            value="1"
-                        />
-                        <span id="coverage-value"></span>
-                    </div>
-                    <div>
-                        <label>Upper Percentile</label>
-                        <input
-                            id="upperPercentile"
-                            type="range"
-                            min="90"
-                            max="100"
-                            step="1"
-                            value="100"
-                        />
-                        <span id="upperPercentile-value"></span>
-                    </div>
-                </div>
-            </div>
+      <!-- Prepare a DOM with a defined width and height for ECharts -->
+      <div id="main" class="chart-item"></div>
+      <br />
+      <div id="chart2" class="chart-item"></div>
+      <br />
+      <div id="chart3" class="chart-item"></div>
+      <br />
+      <div id="chart4" class="chart-item"></div>
+      <br />
+      <div id="chart5" class="chart-item"></div>
+      <br />
+      <div id="chart6" class="chart-item"></div>
+      <br />
+      <div id="chart7" class="chart-item"></div>
+      <br />
+      <div id="deck1" class="chart-item">
+        <div id="control-panel">
+          <div>
+            <label>Radius</label>
+            <input
+              id="radius"
+              type="range"
+              min="1000"
+              max="20000"
+              step="1000"
+              value="1000"
+            />
+            <span id="radius-value"></span>
+          </div>
+          <div>
+            <label>Coverage</label>
+            <input
+              id="coverage"
+              type="range"
+              min="0"
+              max="1"
+              step="0.1"
+              value="1"
+            />
+            <span id="coverage-value"></span>
+          </div>
+          <div>
+            <label>Upper Percentile</label>
+            <input
+              id="upperPercentile"
+              type="range"
+              min="90"
+              max="100"
+              step="1"
+              value="100"
+            />
+            <span id="upperPercentile-value"></span>
+          </div>
         </div>
-        <script>
-            numbers1();
-            title();
+        <div class="select">
+          <select
+            id="country-select"
+            name="country-select"
+            onchange="deck1(this.options[this.selectedIndex].value)"
+          >
+            <option value="uk" selected>UK</option>
+            <option value="de">Germany</option>
+          </select>
+        </div>
+      </div>
+      <br />
+      <span id="dayofweek"></span>
+      <div id="globe1" class="chart-item"></div>
+    </div>
+    <script>
+      numbers1();
+      title();
 
-            chart1(); //boring bar chart
-            chart2(chart2data.data); //coffee lexicon
-            chart3(chart3data.data); //country income
-            chart4(); //line with shared pie chart
-            chart5(); //pie chart with material
-            chart6(); //infographic with trees
-            chart7(); //bar chart using svg
+      chart1(); //boring bar chart
+      chart2(chart2data.data); //coffee lexicon
+      chart3(chart3data.data); //country income
+      chart4(); //line with shared pie chart
+      chart5(); //pie chart with material
+      chart6(); //infographic with trees
+      chart7(); //bar chart using svg
 
-            deck1();
-            // deck2();
-
-            globe1();
-        </script>
-    </body>
+      const selectOptions = document.getElementById("country-select");
+      deck1(selectOptions[selectOptions.selectedIndex].value);
+      globe1();
+    </script>
+  </body>
 </html>

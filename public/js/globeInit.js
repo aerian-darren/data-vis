@@ -41,42 +41,44 @@ function globe1() {
 
   //controls
   myGlobe.controls().autoRotate = true;
-  myGlobe.controls().autoRotateSpeed = 0.6;
+  myGlobe.controls().autoRotateSpeed = 1.5;
   myGlobe.controls().enableZoom = false;
 
-  let timer;
+  const weekText = document.getElementById("dayofweek");
+  const dayOfWeek = {
+    1: "Monday",
+    2: "Tuesday",
+    3: "Wednesday",
+    4: "Thursday",
+    5: "Friday",
+    6: "Saturday",
+    7: "Sunday"
+  };
 
-  const getData = (amount, i = 0) => {
-    console.log("i", i);
+  let timer;
+  const getData = async (amount, start = 1) => {
     clearTimeout(timer);
 
+    let i = start;
     if (i > amount) {
-      i = 0;
+      i = 1;
     }
-    const datax = d3
-      .json(
-        `../data/world_population${i}.json`
-        // ({ lat, lon, population }) => ({
-        //   lat: +lat,
-        //   lon: +lon,
-        //   population: +population
-        // })
-      )
-      .then(data => {
-        // console.log("myGlobe", myGlobe);
-        populationData = [];
-        populationData = [...data];
-        // console.log("populationData", populationData[1]);
-        myGlobe.pointsTransitionDuration(4000);
-        myGlobe.pointsData(populationData);
-      });
+    // console.log("dayOfWeek", dayOfWeek[i]);
+    const data = await d3.json(`../data/world_population${i}.json`);
+
+    // console.log("myGlobe", myGlobe);
+    populationData = [];
+    populationData = [...data];
+    // console.log("populationData", populationData[1]);
+    myGlobe.pointsTransitionDuration(4000);
+    myGlobe.pointsData(populationData);
+    weekText.innerHTML = dayOfWeek[i];
 
     i++;
-
     timer = setTimeout(getData, 6000, amount, i);
   };
 
-  getData(5);
+  getData(7);
 }
 function numbers1() {
   const counters = document.querySelectorAll(".counter");
