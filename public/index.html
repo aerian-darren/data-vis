@@ -90,9 +90,6 @@
       <br />
       <div id="chart7" class="chart-item"></div>
       <br />
-      <span id="dayofweek"></span>
-      <div id="globe1" class="chart-item"></div>
-      <br />
       <div id="deck1" class="chart-item">
         <div id="control-panel">
           <div>
@@ -132,7 +129,20 @@
             <span id="upperPercentile-value"></span>
           </div>
         </div>
+        <div class="select">
+          <select
+            id="country-select"
+            name="country-select"
+            onchange="deck1(this.options[this.selectedIndex].value)"
+          >
+            <option value="uk" selected>UK</option>
+            <option value="de">Germany</option>
+          </select>
+        </div>
       </div>
+      <br />
+      <span id="dayofweek"></span>
+      <div id="globe1" class="chart-item"></div>
     </div>
     <script>
       numbers1();
@@ -146,8 +156,9 @@
       chart6(); //infographic with trees
       chart7(); //bar chart using svg
 
+      const selectOptions = document.getElementById("country-select");
+      deck1(selectOptions[selectOptions.selectedIndex].value);
       globe1();
-      deck1();
     </script>
   </body>
 </html>

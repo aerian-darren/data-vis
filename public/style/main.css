@@ -50,6 +50,16 @@ body {
   z-index: 1;
 }
 
+.select {
+  font-family: Helvetica, Arial, sans-serif;
+  position: absolute;
+  right: 0px;
+  background: rgb(47, 46, 46);
+  margin: 12px;
+  padding: 10px;
+  z-index: 1;
+}
+
 label {
   display: inline-block;
   width: 140px;

@@ -63,7 +63,7 @@ function globe1() {
     if (i > amount) {
       i = 1;
     }
-    console.log("dayOfWeek", dayOfWeek[i]);
+    // console.log("dayOfWeek", dayOfWeek[i]);
     const data = await d3.json(`../data/world_population${i}.json`);
 
     // console.log("myGlobe", myGlobe);
