@@ -17,7 +17,7 @@ const countrySettings = {
     initialViewState: {
       longitude: 9.0,
       latitude: 51,
-      zoom: 4.5,
+      zoom: 5,
       minZoom: 4,
       maxZoom: 15,
       pitch: 50

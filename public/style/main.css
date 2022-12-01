@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.cdnfonts.com/css/sintony");
 
 body {
-  background-color: #2828286f;
-  color: #fff;
+  background-color: #f6f6f6;
+  color: #cc0433;
+  font-family: "Sintony", sans-serif;
   font-family: "Roboto Mono", sans-serif;
 
   align-items: center;
@@ -13,13 +15,35 @@ body {
 
 .container {
   width: 90%;
+  margin: 0 auto 50px;
+}
+
+.graph-container {
+  background-color: #eaeaea;
+  border: 1px solid rgb(176, 175, 175);
+  border-radius: 4px;
+  margin: 20px 0 0 0;
+}
+
+.graph-container a {
+  position: absolute;
+  top:10;
+  display: inline;
+}
+
+.graph-container h2 {
   margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.chart-title {
+  color: #666;
 }
 
 .chart-item {
   width: 100%;
   height: 50vh;
-  margin-bottom: 5vh;
 }
 
 .counter-container {
@@ -48,6 +72,7 @@ body {
   margin: 12px;
   padding: 20px;
   z-index: 1;
+  color: white;
 }
 
 .select {

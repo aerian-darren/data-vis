@@ -16,8 +16,15 @@ function globe1() {
     .scaleSequentialSqrt(d3.interpolateYlOrRd)
     .domain([0, 1e7]);
 
+  //todo this could be a helper
+  const box = document.querySelector("#globe1");
+  const width = box.offsetWidth;
+  const height = box.offsetHeight;
+
+
   const myGlobe = Globe()
     .height(500) //todo can this be done better?
+    .width(width)
     .globeImageUrl("//unpkg.com/three-globe/example/img/earth-night.jpg")
     .backgroundImageUrl("//unpkg.com/three-globe/example/img/night-sky.png")
     .pointLat("lat")
