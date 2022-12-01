@@ -25,6 +25,12 @@ body {
   margin: 20px 0 0 0;
 }
 
+.graph-container a {
+  position: absolute;
+  top:10;
+  display: inline;
+}
+
 .graph-container h2 {
   margin: 0 auto;
   text-align: center;
