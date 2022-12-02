@@ -181,11 +181,19 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="graph-container">
+                <h2 class="chart-title">3D Bar Chart</h2>
+                <div id="chart-container" style="width: 1000px;height:400px;"></div>
+            </div>
+
             <div class="graph-container">
                 <h2 class="chart-title">Basic Bar Chart</h2>
                 <span id="dayofweek"></span>
                 <div id="globe1" class="chart-item"></div>
             </div>
+
         </div>
         <script>
             numbers1();
@@ -203,6 +211,8 @@
             const selectOptions = document.getElementById("country-select");
             deck1(selectOptions[selectOptions.selectedIndex].value);
             globe1();
+
+            chart8();
 
             // With the above scripts loaded, you can call `tippy()` with a CSS
             // selector and a `content` prop:
