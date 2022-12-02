@@ -826,7 +826,7 @@ function numbers1() {
         const updateCounter = () => {
             const target = +counter.getAttribute("data-target");
             const count = +counter.innerText;
-            const increment = target / 200;
+            const increment = target / 250;
             if (count < target) {
                 counter.innerText = `${Math.ceil(count + increment)}`;
                 setTimeout(updateCounter, 1);
