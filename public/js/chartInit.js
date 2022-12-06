@@ -707,9 +707,6 @@ function chart7() {
         fontSize: 16,
     };
     option = {
-        title: {
-            text: "Vehicles in X City",
-        },
         legend: {
             data: ["2015", "2016"],
         },
@@ -724,7 +721,7 @@ function chart7() {
             left: 20,
         },
         yAxis: {
-            data: ["reindeer", "ship", "plane", "train", "car"],
+            data: ["ship", "plane", "train", "car"],
             inverse: true,
             axisLine: { show: false },
             axisTick: { show: false },
@@ -751,13 +748,9 @@ function chart7() {
                 type: "pictorialBar",
                 label: labelSetting,
                 symbolRepeat: true,
-                symbolSize: ["80%", "60%"],
+                symbolSize: ["90%", "60%"],
                 barCategoryGap: "40%",
                 data: [
-                    {
-                        value: 157,
-                        symbol: pathSymbols.reindeer,
-                    },
                     {
                         value: 21,
                         symbol: pathSymbols.ship,
@@ -782,12 +775,8 @@ function chart7() {
                 barGap: "10%",
                 label: labelSetting,
                 symbolRepeat: true,
-                symbolSize: ["80%", "60%"],
+                symbolSize: ["90%", "60%"],
                 data: [
-                    {
-                        value: 184,
-                        symbol: pathSymbols.reindeer,
-                    },
                     {
                         value: 29,
                         symbol: pathSymbols.ship,
