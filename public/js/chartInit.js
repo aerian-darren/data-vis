@@ -181,7 +181,7 @@ function chart2() {
         backgroundColor: "#161627",
         legend: {
             bottom: 5,
-            data: ["London", "Paris", "Rome"],
+            data: ["2020", "2021", "2022"],
             itemGap: 20,
             textStyle: {
                 color: "#fff",
@@ -191,12 +191,12 @@ function chart2() {
         },
         radar: {
             indicator: [
-                { name: "AQI", max: 300 },
-                { name: "PM2.5", max: 250 },
-                { name: "PM10", max: 300 },
-                { name: "CO", max: 5 },
-                { name: "NO2", max: 200 },
-                { name: "SO2", max: 100 },
+                { name: "Web", max: 300 },
+                { name: "Android", max: 250 },
+                { name: "iOS", max: 300 },
+                { name: "Amazon Echo", max: 5 },
+                { name: "Google Home", max: 200 },
+                { name: "Automotive", max: 100 },
             ],
             shape: "circle",
             splitNumber: 5,
@@ -226,7 +226,7 @@ function chart2() {
         },
         series: [
             {
-                name: "London",
+                name: "2020",
                 type: "radar",
                 lineStyle: lineStyle,
                 data: dataBJ,
@@ -239,7 +239,7 @@ function chart2() {
                 },
             },
             {
-                name: "Paris",
+                name: "2021",
                 type: "radar",
                 lineStyle: lineStyle,
                 data: dataSH,
@@ -252,7 +252,7 @@ function chart2() {
                 },
             },
             {
-                name: "Rome",
+                name: "2022",
                 type: "radar",
                 lineStyle: lineStyle,
                 data: dataGZ,
