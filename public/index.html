@@ -66,6 +66,7 @@
         <!-- some data in a js var for chart 2 and 3 -->
         <script src="/data/chart2.js"></script>
         <script src="/data/chart3.js"></script>
+        <script src="/data/chart9.js"></script>
 
         <!-- this is where the charts are created, 1 for each lib -->
         <script src="/js/chartInit.js"></script>
@@ -126,6 +127,14 @@
                 <div id="chart7" class="chart-item"></div>
             </div>
             <div class="graph-container">
+                <h2 class="chart-title">3D Bar Chart</h2>
+                <div id="chart-container" style="width: 1000px;height:400px;"></div>
+            </div>
+            <div class="graph-container">
+                <h2 class="chart-title">Keywords by Station</h2>
+                <div id="chart9" class="chart-item"></div>
+            </div>
+            <div class="graph-container">
                 <h2 class="chart-title">Station Average time Listened</h2>
                 <div id="chartMap" class="chart-item"></div>
             </div>
@@ -182,19 +191,11 @@
                     </div>
                 </div>
             </div>
-
-
-            <div class="graph-container">
-                <h2 class="chart-title">3D Bar Chart</h2>
-                <div id="chart-container" style="width: 1000px;height:400px;"></div>
-            </div>
-
             <div class="graph-container">
                 <h2 class="chart-title">Global listeners</h2>
                 <span id="dayofweek"></span>
                 <div id="globe1" class="chart-item"></div>
             </div>
-
         </div>
         <script>
             numbers1();
@@ -214,6 +215,7 @@
             globe1();
 
             chart8();
+            chart9(chart9data.data);
 
             // With the above scripts loaded, you can call `tippy()` with a CSS
             // selector and a `content` prop:
