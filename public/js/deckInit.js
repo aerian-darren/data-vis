@@ -36,8 +36,8 @@ function deck1(country) {
 
   const deckgl = new DeckGL({
     id: "map",
-    mapStyle:
-      "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+    map: maplibregl,
+    mapStyle: "https://wms.wheregroup.com/tileserver/style/osm-bright.json",
     initialViewState: settings.initialViewState,
     controller: true,
     container: "deck1"
